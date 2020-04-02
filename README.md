@@ -10,12 +10,14 @@
    npm install gulp --save-gulp
 #### 初始化项目
    npm init
+#### 创建 gulpfile.js 文件
+
 
 ------------
 ## 二、常用插件
 1. 自动加载插件
-使用：gulp-load-plugins
-安装：npm install --save-dev gulp-load-plugins
+    使用：gulp-load-plugins
+    安装：npm install --save-dev gulp-load-plugins
 
 2. 重命名
     使用：gulp-rename
