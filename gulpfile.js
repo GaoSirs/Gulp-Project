@@ -2,10 +2,14 @@
  * @Author: Happy
  * @Date:   2020-04-02 10:49:21
  * @Last Modified by:   Happy
- * @Last Modified time: 2020-04-02 19:41:40
+ * @Last Modified time: 2020-04-02 20:38:21
  */
 
 'use strict';
+
+
+/***********************  引入插件  ************************/
+
 
 var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
@@ -26,6 +30,9 @@ var gulp = require('gulp'),
 
 var $ = require('gulp-load-plugins')();
 
+
+
+/***********************  编写任务  ************************/
 
 
 
@@ -74,13 +81,11 @@ gulp.task('js', function() {
             presets: ['es2015']
         }))
         .pipe(changed('./dist/js'))
-        .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(rev())
         .on('error', function(err) {
             util.log(util.colors.red('[Error--------log:]'), err.toString());
         })
-        .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest('./dist/js'))
         .pipe(rev.manifest())
         .pipe(gulp.dest('./rev/js'));
@@ -155,11 +160,25 @@ gulp.task('watch', function() {
 
 
 
-gulp.task('default', function(cb) {
+
+/***********************  执行任务  ************************/
+
+
+
+// 启动本地服务器 gulp dev
+gulp.task('dev', function(cb) {
+    runSequence(
+        ['webserver', 'watch'],
+        cb);
+});
+
+
+
+// 项目打包 gulp build
+gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
         ['html', 'css', 'js', 'image'],
-        ['webserver', 'watch'],
         ['rev'],
         cb);
 });
