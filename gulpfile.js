@@ -2,7 +2,7 @@
  * @Author: Happy
  * @Date:   2020-04-02 10:49:21
  * @Last Modified by:   Happy
- * @Last Modified time: 2020-04-02 20:38:21
+ * @Last Modified time: 2020-04-02 20:55:38
  */
 
 'use strict';
@@ -11,22 +11,22 @@
 /***********************  引入插件  ************************/
 
 
-var gulp = require('gulp'),
-    htmlmin = require('gulp-htmlmin'),
-    babel = require('gulp-babel'),
-    clean = require('gulp-clean'),
-    rename = require('gulp-rename'),
-    cleanCSS = require('gulp-clean-css'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    rev = require('gulp-rev'),
-    imagemin = require('gulp-imagemin'),
-    changed = require('gulp-changed'),
-    revCollector = require('gulp-rev-collector'),
-    runSequence = require('gulp4-run-sequence'),
-    webserver = require('gulp-webserver'),
-    sourcemaps = require('gulp-sourcemaps'),
-    util = require('gulp-util');
+var gulp = require('gulp'), // 引入gulp
+    rev = require('gulp-rev'), // 文件名加hash后缀
+    util = require('gulp-util'), // 报错日志
+    babel = require('gulp-babel'), // 处理js兼容性
+    clean = require('gulp-clean'), // 清空文件夹
+    rename = require('gulp-rename'), // 重命名
+    concat = require('gulp-concat'), // 文件合并
+    uglify = require('gulp-uglify'), // 文件压缩
+    htmlmin = require('gulp-htmlmin'), // 压缩HTML
+    changed = require('gulp-changed'), // 仅通过更改的文件
+    imagemin = require('gulp-imagemin'), // 图片压缩
+    cleanCSS = require('gulp-clean-css'), // css压缩
+    webserver = require('gulp-webserver'), // 服务器
+    sourcemaps = require('gulp-sourcemaps'), // 内联源地图（未用）
+    runSequence = require('gulp4-run-sequence'), // 任务执行顺序
+    revCollector = require('gulp-rev-collector') // 改变引用路径
 
 var $ = require('gulp-load-plugins')();
 
