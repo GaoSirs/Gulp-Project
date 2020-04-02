@@ -14,8 +14,8 @@
 ------------
 ## 二、常用插件
 1. 自动加载插件
-    使用：gulp-load-plugins
-    安装：npm install --save-dev gulp-load-plugins
+使用：gulp-load-plugins
+安装：npm install --save-dev gulp-load-plugins
 
 2. 重命名
     使用：gulp-rename
